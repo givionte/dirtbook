@@ -1,11 +1,6 @@
 import { Box, Input } from "@chakra-ui/react";
 import { SetStateAction, useEffect, useState } from "react";
-import { FilterState } from "../pages";
 import { Drivers } from "../types/queries-file";
-
-interface Props extends FilterState {
-  setFileredDrivers: (drivers: []) => void;
-}
 
 export default function Search({
   drivers,
