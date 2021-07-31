@@ -3,28 +3,18 @@ import {
   AccordionButton,
   AccordionItem,
   AccordionPanel,
-  Avatar,
-  Badge,
   Box,
   chakra,
-  Container,
   Flex,
   Grid,
   GridItem,
-  Icon,
   Link,
   Spacer,
-  Stack,
   Tag,
   Text,
 } from "@chakra-ui/react";
-import { Drivers, Drivers_drivers } from "../types/queries-file";
+import { Drivers_drivers } from "../types/queries-file";
 import Image from "next/image";
-import more from "../public/more.png";
-import iglogo from "../public/instagram.svg";
-import fblogo from "../public/facebook.svg";
-import twlogo from "../public/twitter.svg";
-import weblogo from "../public/website.svg";
 import WebsiteSVG from "./svglogos/website";
 import FacebookSVG from "./svglogos/facebook";
 import TwitterSVG from "./svglogos/twitter";
@@ -68,8 +58,8 @@ export default function DriverItem({ driver }: { driver: Drivers_drivers }) {
 
           <Flex alignItems="center" justifyContent="space-around">
             <Tag
-              textColor={driver.secondary_text_color}
-              backgroundColor={driver.primary_bg_color}
+              textColor={{ base: `${driver.secondary_text_color}` }}
+              backgroundColor={{ base: `${driver.primary_bg_color}` }}
               fontSize="lg"
               fontWeight="700"
               padding="3"

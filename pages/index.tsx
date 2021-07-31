@@ -1,20 +1,16 @@
-import {
-  Container,
-  ListItem,
-  SimpleGrid,
-  UnorderedList,
-} from "@chakra-ui/react";
+import { Container, SimpleGrid } from "@chakra-ui/react";
 import Head from "next/head";
-import Image from "next/image";
 import { gql } from "@apollo/client";
 import { generateApolloClient } from "@nhost/react-apollo";
-import { Drivers } from "../types/queries-file";
+import { Drivers, Drivers_drivers } from "../types/queries-file";
 import DriverItem from "../components/driveritem";
 import { useState } from "react";
 import Search from "../components/search";
 
 export default function Home(drivers: Drivers) {
-  const [filteredDrivers, setFilteredDrivers] = useState([]);
+  const [filteredDrivers, setFilteredDrivers] = useState<
+    Drivers_drivers[] | []
+  >([]);
 
   return (
     <>

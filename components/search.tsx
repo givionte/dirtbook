@@ -1,13 +1,13 @@
 import { Box, Input } from "@chakra-ui/react";
-import { SetStateAction, useEffect, useState } from "react";
-import { Drivers } from "../types/queries-file";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Drivers, Drivers_drivers } from "../types/queries-file";
 
 export default function Search({
   drivers,
   setFilteredDrivers,
 }: {
   drivers: Drivers;
-  setFilteredDrivers: any;
+  setFilteredDrivers: Dispatch<SetStateAction<[] | Drivers_drivers[]>>;
 }) {
   const [search, setSearch] = useState("");
 
@@ -15,7 +15,7 @@ export default function Search({
     setFilteredDrivers(
       drivers.drivers.filter((driver) => driver.car_number.includes(search))
     );
-  }, [drivers, search]);
+  }, [drivers, search, setFilteredDrivers]);
 
   return (
     <Box>
