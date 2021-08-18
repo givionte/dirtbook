@@ -13,7 +13,7 @@ import {
   Tag,
   Text,
 } from "@chakra-ui/react";
-import { Drivers_drivers } from "../types/queries-file";
+import { Data_drivers } from "../types/queries-file";
 import Image from "next/image";
 import WebsiteSVG from "./svglogos/website";
 import FacebookSVG from "./svglogos/facebook";
@@ -21,7 +21,7 @@ import TwitterSVG from "./svglogos/twitter";
 import InstagramSVG from "./svglogos/instagram";
 import DetailsSVG from "./svglogos/details";
 
-export default function DriverItem({ driver }: { driver: Drivers_drivers }) {
+export default function DriverItem({ driver }: { driver: Data_drivers }) {
   const CarImage = chakra(Image, {
     baseStyle: { maxH: 500, maxW: 500 },
     shouldForwardProp: (prop) =>
