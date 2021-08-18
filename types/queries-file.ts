@@ -4,10 +4,10 @@
 // This file was automatically generated and should not be edited.
 
 // ====================================================
-// GraphQL query operation: Drivers
+// GraphQL query operation: Data
 // ====================================================
 
-export interface Drivers_drivers {
+export interface Data_drivers {
   __typename: "drivers";
   first_name: string;
   last_name: string;
@@ -31,11 +31,30 @@ export interface Drivers_drivers {
   secondary_text_color: string | null;
 }
 
-export interface Drivers {
+export interface Data_series {
+  __typename: "series";
+  id: number;
+  count: number;
+  created_at: any;
+  facebook: string | null;
+  instagram: string | null;
+  schedule: string | null;
+  series_logo: string | null;
+  series_name: string;
+  twitter: string | null;
+  updated_at: any;
+  website: string | null;
+}
+
+export interface Data {
   /**
    * fetch data from the table: "drivers"
    */
-  drivers: Drivers_drivers[];
+  drivers: Data_drivers[];
+  /**
+   * fetch data from the table: "series"
+   */
+  series: Data_series[];
 }
 
 /* tslint:disable */
