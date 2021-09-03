@@ -5,28 +5,32 @@ import {
   InputGroup,
   InputRightAddon,
 } from "@chakra-ui/react";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect } from "react";
 import { Data_drivers } from "../types/queries-file";
 import SearchSVG from "./svglogos/search";
 
 export default function Search({
   drivers,
+  search,
+  setSearch,
   setFilteredDrivers,
 }: {
   drivers: Data_drivers[];
+  search: string;
+  setSearch: Dispatch<SetStateAction<string>>;
   setFilteredDrivers: Dispatch<SetStateAction<[] | Data_drivers[]>>;
 }) {
-  const [search, setSearch] = useState("");
-
   useEffect(() => {
-    setFilteredDrivers(
-      drivers.filter(
-        (driver) =>
-          driver.car_number.includes(search) ||
-          driver.last_name.toLowerCase().includes(search.toLowerCase()) ||
-          driver.first_name.toLowerCase().includes(search.toLowerCase())
-      )
-    );
+    if (search) {
+      setFilteredDrivers(
+        drivers.filter(
+          (driver) =>
+            driver.car_number.includes(search) ||
+            driver.last_name.toLowerCase().includes(search.toLowerCase()) ||
+            driver.first_name.toLowerCase().includes(search.toLowerCase())
+        )
+      );
+    }
   }, [drivers, search, setFilteredDrivers]);
 
   return (

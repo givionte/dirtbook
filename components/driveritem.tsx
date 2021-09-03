@@ -52,7 +52,13 @@ export default function DriverItem({ driver }: { driver: Data_drivers }) {
               fontSize="xs"
               fontWeight="thin"
             >
-              {driver.car_image_attr}
+              {driver.car_image_attr_url ? (
+                <Link href={`${driver.car_image_attr_url}`} isExternal>
+                  {driver.car_image_attr}
+                </Link>
+              ) : (
+                `${driver.car_image_attr}`
+              )}
             </Text>
           </Flex>
 
@@ -121,6 +127,12 @@ export default function DriverItem({ driver }: { driver: Data_drivers }) {
                   <chakra.span fontWeight="bold">Hometown &#8226; </chakra.span>
                   {driver.hometown_city}, {driver.hometown_state}
                 </Text>
+
+                <Text fontSize="sm">
+                  <chakra.span fontWeight="bold">Birthday &#8226; </chakra.span>
+                  {driver.birthday}
+                </Text>
+
                 <Text fontSize="sm">
                   <chakra.span fontWeight="bold">Team &#8226; </chakra.span>
                   {driver.team}

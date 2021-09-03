@@ -7,6 +7,11 @@
 // GraphQL query operation: Data
 // ====================================================
 
+export interface Data_drivers_series_drivers {
+  __typename: "series_drivers";
+  series_id: number;
+}
+
 export interface Data_drivers {
   __typename: "drivers";
   first_name: string;
@@ -16,6 +21,7 @@ export interface Data_drivers {
   birthday: any | null;
   car_image: string | null;
   car_image_attr: string | null;
+  car_image_attr_url: string | null;
   chassis: string | null;
   created_at: any;
   driver_image: string | null;
@@ -29,6 +35,23 @@ export interface Data_drivers {
   website: string | null;
   primary_bg_color: string | null;
   secondary_text_color: string | null;
+  /**
+   * An array relationship
+   */
+  series_drivers: Data_drivers_series_drivers[];
+}
+
+export interface Data_series_series_drivers_driver {
+  __typename: "drivers";
+  id: number;
+}
+
+export interface Data_series_series_drivers {
+  __typename: "series_drivers";
+  /**
+   * An object relationship
+   */
+  driver: Data_series_series_drivers_driver;
 }
 
 export interface Data_series {
@@ -44,6 +67,10 @@ export interface Data_series {
   twitter: string | null;
   updated_at: any;
   website: string | null;
+  /**
+   * An array relationship
+   */
+  series_drivers: Data_series_series_drivers[];
 }
 
 export interface Data {
