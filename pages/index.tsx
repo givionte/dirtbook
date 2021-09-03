@@ -80,7 +80,7 @@ export default function Home({
           ) : null}
         </Center>
         <SimpleGrid minChildWidth="220px" spacing="40px">
-          {filteredDrivers.length > 1 ? (
+          {filteredDrivers.length > 0 ? (
             filteredDrivers.map((driver) => {
               return <DriverItem key={driver.id} driver={driver} />;
             })
